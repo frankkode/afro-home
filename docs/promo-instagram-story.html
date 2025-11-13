@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ TECH ACADEMY - Instagram Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .story {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative elements */
+        .circle1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            top: -200px;
+            right: -200px;
+        }
+
+        .circle2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .circle3 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            top: 50%;
+            left: -100px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 100px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .top-section {
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 80px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.95);
+            font-size: 36px;
+            margin-bottom: 80px;
+            font-weight: 300;
+        }
+
+        .headline {
+            background: white;
+            padding: 60px;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .emoji-big {
+            font-size: 120px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 68px;
+            color: #2d3748;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 900;
+        }
+
+        .subheadline {
+            font-size: 32px;
+            color: #718096;
+            margin-top: 20px;
+        }
+
+        .commission-box {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 70px;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
+        }
+
+        .commission-label {
+            font-size: 32px;
+            color: #2d3748;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .commission-rate {
+            font-size: 140px;
+            font-weight: 900;
+            color: #2d3748;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .commission-text {
+            font-size: 38px;
+            color: #2d3748;
+            font-weight: bold;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 28px;
+            color: #2d3748;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 22px;
+            color: #718096;
+        }
+
+        .tier-showcase {
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 30px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tier-title {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tiers-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .tier {
+            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .tier-emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .tier-name {
+            font-size: 20px;
+            color: #2d3748;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .tier-rate {
+            font-size: 42px;
+            color: #667eea;
+            font-weight: 900;
+        }
+
+        .cta-section {
+            background: white;
+            padding: 70px;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .cta-title {
+            font-size: 52px;
+            color: #2d3748;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        .website-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+        }
+
+        .website {
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .cta-action {
+            font-size: 40px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .swipe-up {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .swipe-icon {
+            font-size: 64px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="story">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+
+        <div class="content">
+            <div class="top-section">
+                <div class="logo">IQ TECH<br>ACADEMY</div>
+                <div class="tagline">Rwanda's Premier Tech Platform</div>
+            </div>
+
+            <div>
+                <div class="headline">
+                    <div class="emoji-big">🚀💰</div>
+                    <h1>Become an<br><span class="highlight">Affiliate</span></h1>
+                    <div class="subheadline">Start Earning Today!</div>
+                </div>
+
+                <div class="commission-box">
+                    <div class="commission-label">Earn Up To</div>
+                    <div class="commission-rate">30%</div>
+                    <div class="commission-text">Commission Per Sale</div>
+                </div>
+
+                <div class="tier-showcase">
+                    <div class="tier-title">🏆 4 Tier Levels</div>
+                    <div class="tiers-row">
+                        <div class="tier">
+                            <div class="tier-emoji">🥉</div>
+                            <div class="tier-name">Bronze</div>
+                            <div class="tier-rate">20%</div>
+                        </div>
+                        <div class="tier">
+                            <div class="tier-emoji">🥈</div>
+                            <div class="tier-name">Silver</div>
+                            <div class="tier-rate">22%</div>
+                        </div>
+                        <div class="tier">
+                            <div class="tier-emoji">🥇</div>
+                            <div class="tier-name">Gold</div>
+                            <div class="tier-rate">25%</div>
+                        </div>
+                        <div class="tier">
+                            <div class="tier-emoji">💎</div>
+                            <div class="tier-name">Platinum</div>
+                            <div class="tier-rate">30%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <div class="feature-title">Custom Links</div>
+                        <div class="feature-desc">Track all sales</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">Live Stats</div>
+                        <div class="feature-desc">Real-time data</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💵</div>
+                        <div class="feature-title">$50 Min</div>
+                        <div class="feature-desc">Fast payouts</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">30 Days</div>
+                        <div class="feature-desc">Cookie life</div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <div class="cta-title">Join Now!</div>
+                    <div class="website-box">
+                        <div class="website">rwandatechacademy.com</div>
+                    </div>
+                    <div class="cta-action">👆 Apply for Affiliate Program</div>
+                </div>
+            </div>
+
+            <div class="swipe-up">
+                <span class="swipe-icon">👆</span>
+                SWIPE UP TO APPLY
+            </div>
+        </div>
+    </div>
+</body>
+</html>
